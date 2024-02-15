@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ed_259_xcri6cpkkjs_unsplash_2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="32dp"
+        android:background="#66000000">
+
+        <TextView
+            android:id="@+id/textViewSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign-In Here"
+            android:textSize="24sp"
+            android:textColor="#FFFFFF"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewSignIn"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:hint="Username"
+            android:padding="12dp"
+            android:scrollbarStyle="insideInset" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:layout_below="@id/editTextUsername"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:inputType="textPassword"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="373dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPassword"
+            android:layout_marginTop="28dp"
+            android:background="@color/design_default_color_error"
+            android:backgroundTint="@color/design_default_color_error"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="@color/design_default_color_error"
+            android:textColorLink="@color/design_default_color_error"
+            app:iconPadding="20dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

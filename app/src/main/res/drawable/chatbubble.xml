@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- The rectangle part of the bubble -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFFFF"/> <!-- Background color of the bubble -->
+            <corners android:radius="16dp"/> <!-- Rounded corners -->
+            <padding
+                android:left="16dp"
+                android:top="8dp"
+                android:right="16dp"
+                android:bottom="8dp"/> <!-- Padding inside the bubble -->
+        </shape>
+    </item>
+    <!-- The tail of the bubble -->
+    <item android:drawable="@drawable/bubbletail" android:top="24dp" android:left="2dp"/>
+</layer-list>
