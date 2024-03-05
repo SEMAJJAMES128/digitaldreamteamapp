@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "480015853432",
+    "project_id": "digitaldreamteamapp-6b756",
+    "storage_bucket": "digitaldreamteamapp-6b756.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480015853432:android:391988bec64f3db2b84a8d",
+        "android_client_info": {
+          "package_name": "com.example.digitaldreamteamapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcX6s43W6T2EGYV_afedskNhYZOJw-Lnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
