@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/ed_259_xcri6cpkkjs_unsplash_2">
 
+    <!-- Close Button -->
     <ImageView
         android:id="@+id/closeButton"
         android:layout_width="32dp"
@@ -15,13 +16,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Back Button -->
+
+    <!-- History Button -->
+
+    <!-- Button Today 3 -->
+
+    <!-- Button Today 2 -->
+
+    <!-- Button Today -->
+
+    <!-- Horizontal Line Above Today 3 -->
+
 
     <ImageView
         android:id="@+id/backbutton"
         android:layout_width="26dp"
         android:layout_height="35dp"
         android:layout_marginStart="324dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/newback"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,13 +43,112 @@
         android:id="@+id/buttonHistory"
         android:layout_width="295dp"
         android:layout_height="48dp"
+        android:layout_marginTop="52dp"
         android:backgroundTint="@color/design_default_color_error"
         android:text="History"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonToday3"
+        android:layout_width="163dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="404dp"
+        android:background="@drawable/textred"
+        android:backgroundTint="@color/design_default_color_error"
+        android:backgroundTintMode="add"
+        android:text="Where do I submit a ticket?"
+        android:textAlignment="gravity"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonHistory" />
+
+
+    <Button
+        android:id="@+id/buttonToday2"
+        android:layout_width="163dp"
+        android:layout_height="49dp"
+        android:background="@drawable/textred"
+        android:backgroundTint="@color/red"
+        android:text="How do I request time off?"
+        android:textAlignment="gravity"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonToday"
+        android:layout_width="163dp"
+        android:layout_height="49dp"
+        android:background="@drawable/textred"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Types of products"
+        android:textAlignment="center"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071" />
-    />
+        app:layout_constraintVertical_bias="0.277" />
+
+    <!-- Horizontal Line Above Today 3 -->
+
+    <!-- Horizontal Line Above Today 2 -->
+
+    <!-- Horizontal Line Above Today -->
+
+
+    <!-- Vertical Line -->
+
+    <View
+        android:id="@+id/horizontalLineAboveToday3"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="472dp"
+        android:background="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.565"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/horizontalLineAboveToday2"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="164dp"
+        android:background="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/horizontalLineAboveToday"
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="316dp"
+        android:background="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/verticalLine"
+        android:layout_width="4dp"
+        android:layout_height="500dp"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
