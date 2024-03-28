@@ -1,5 +1,5 @@
 <!-- res/drawable/bg_button_transparent_red.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#D9FF0000"/> <!-- 85% opaque red -->
+    <solid android:color="#80FF0000"/> <!-- 85% opaque red -->
     <corners android:radius="4dp"/> <!-- Adjust the corner radius as needed -->
 </shape>
