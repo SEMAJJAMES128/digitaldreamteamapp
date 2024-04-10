@@ -2,5 +2,5 @@
 <resources>
     <item name="buttonHistory" type="id" />
     <item name="messageTextView" type="id" />
-    <item name="themessage" type="id" />
+    <item name="textViewPrompt" type="id" />
 </resources>

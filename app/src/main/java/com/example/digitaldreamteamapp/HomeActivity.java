@@ -2,7 +2,6 @@ package com.example.digitaldreamteamapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,18 +61,17 @@ public class HomeActivity extends AppCompatActivity {
                 messageAdapter.notifyItemInserted(messagesList.size() - 1);
                 sendMessageToFirestore(messageText);
                 messageInput.setText("");
-                simulateResponse();
             }
         });
 
         accessHistoryButton.setOnClickListener(v -> {
-            Intent intent = new Intent(HomeActivity.this, historyactivity.class);
+            Intent intent = new Intent(HomeActivity.this, historyactivity.class); // Make sure this is the correct class name
             startActivity(intent);
         });
 
         closeButton.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+            Intent intent = new Intent(HomeActivity.this, MainActivity.class); // Make sure this is the correct class name
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
             finish();
@@ -82,17 +80,10 @@ public class HomeActivity extends AppCompatActivity {
         listenForMessagesFromFirestore();
     }
 
-    private void simulateResponse() {
-        new Handler().postDelayed(() -> {
-            ChatMessage botMessage = new ChatMessage("This is a simulated response from the chatbot.", false, new Timestamp(new Date()));
-            messagesList.add(botMessage);
-            messageAdapter.notifyItemInserted(messagesList.size() - 1);
-        }, 2000);
-    }
-
     private void sendMessageToFirestore(String userMessage) {
         Map<String, Object> messageMap = new HashMap<>();
         messageMap.put("prompt", userMessage);
+        messageMap.put("createTime", new Timestamp(new Date())); // Now adding createTime when sending
         db.collection("dreamteam").add(messageMap)
                 .addOnSuccessListener(documentReference -> Log.d("Firestore", "Message sent successfully"))
                 .addOnFailureListener(e -> Log.e("Firestore", "Error sending message", e));
@@ -100,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void listenForMessagesFromFirestore() {
         db.collection("dreamteam")
-                .orderBy("timestamp", Query.Direction.ASCENDING)
+                .orderBy("createTime", Query.Direction.ASCENDING)
                 .addSnapshotListener((snapshots, e) -> {
                     if (e != null) {
                         Log.e("Firestore", "Listen failed.", e);
@@ -119,22 +110,27 @@ public class HomeActivity extends AppCompatActivity {
 
     public static class ChatMessage {
         private String prompt;
-        private boolean isUser;
-        private Timestamp timestamp;
+        private String response;
+        private boolean isUser; // Ensure this field exists in Firestore if you use it
+        private Timestamp createTime; // Changed to createTime to match Firestore
 
-        public ChatMessage(String prompt, boolean isUser, Timestamp timestamp) {
+        public ChatMessage(String prompt, boolean isUser, Timestamp createTime) {
             this.prompt = prompt;
             this.isUser = isUser;
-            this.timestamp = timestamp;
+            this.createTime = createTime;
         }
 
-        // Empty constructor needed for Firestore
-        public ChatMessage() {}
+        public ChatMessage() {} // Needed for Firestore deserialization
 
-        // Getters
+        // Getters and setters
         public String getPrompt() { return prompt; }
+        public void setPrompt(String prompt) { this.prompt = prompt; }
+        public String getResponse() { return response; }
+        public void setResponse(String response) { this.response = response; }
         public boolean isUser() { return isUser; }
-        public Timestamp getTimestamp() { return timestamp; }
+        public void setUser(boolean user) { isUser = user; }
+        public Timestamp getCreateTime() { return createTime; }
+        public void setCreateTime(Timestamp createTime) { this.createTime = createTime; }
     }
 
     public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
@@ -147,14 +143,15 @@ public class HomeActivity extends AppCompatActivity {
         @NonNull
         @Override
         public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.themessage, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.themessage, parent, false); // Ensure this is the correct layout
             return new MessageViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
             ChatMessage message = messages.get(position);
-            holder.messageText.setText(message.getPrompt());
+            holder.promptTextView.setText(message.getPrompt());
+            holder.responseTextView.setText(message.getResponse()); // Ensure this TextView exists in your layout
         }
 
         @Override
@@ -163,11 +160,13 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         class MessageViewHolder extends RecyclerView.ViewHolder {
-            TextView messageText;
+            TextView promptTextView;
+            TextView responseTextView;
 
             public MessageViewHolder(@NonNull View itemView) {
                 super(itemView);
-                messageText = itemView.findViewById(R.id.themessage); // Make sure this ID matches your TextView in message_item2.xml
+                promptTextView = itemView.findViewById(R.id.textViewPrompt); // Ensure this ID matches your layout
+                responseTextView = itemView.findViewById(R.id.textViewResponse); // Ensure this ID matches your layout
             }
         }
     }
