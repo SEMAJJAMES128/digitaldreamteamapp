@@ -133,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
         public void setCreateTime(Timestamp createTime) { this.createTime = createTime; }
     }
 
-    public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
+    public static class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
         private final List<ChatMessage> messages;
 
         public MessageAdapter(List<ChatMessage> messages) {
@@ -171,4 +171,3 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 }
-
