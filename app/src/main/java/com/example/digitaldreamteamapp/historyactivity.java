@@ -42,10 +42,10 @@ public class historyactivity extends AppCompatActivity {
         hideShowButton = findViewById(R.id.buttonHistory);
         recyclerView = findViewById(R.id.historychatRecyclerView);
 
-        // Initialize Firebase Firestore
+        // for the Firestore
         db = FirebaseFirestore.getInstance();
 
-        // Set up the hide/show button
+        // hide/show button
         hideShowButton.setOnClickListener(v -> {
             if (recyclerView.getVisibility() == View.VISIBLE) {
                 recyclerView.setVisibility(View.GONE);
@@ -54,7 +54,7 @@ public class historyactivity extends AppCompatActivity {
             }
         });
 
-        // Close button click listener
+        // to Close the button click listener
         closeButton.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(historyactivity.this, MainActivity.class);
@@ -63,7 +63,7 @@ public class historyactivity extends AppCompatActivity {
             finish();
         });
 
-        // Initialize the messages list and the adapter
+        // for the messages list and the adapter
         messagesList = new ArrayList<>();
         messageAdapter = new HomeActivity.MessageAdapter(messagesList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -73,7 +73,7 @@ public class historyactivity extends AppCompatActivity {
         fetchChatMessages();
     }
 
-    // Method to fetch chat messages from Firestore
+    // this is to fetch chat messages from Firestore
     @SuppressLint("NotifyDataSetChanged")
     private void fetchChatMessages() {
         db.collection("dreamteam")
@@ -85,13 +85,13 @@ public class historyactivity extends AppCompatActivity {
                         HomeActivity.ChatMessage message = doc.toObject(HomeActivity.ChatMessage.class);
                         messagesList.add(message);
                     }
-                    // Notify adapter of data changes
+                    // remember this is the adapter of data changes
                     messageAdapter.notifyDataSetChanged();
                 })
                 .addOnFailureListener(e -> Log.e("Firestore", "Error fetching messages", e));
     }
 
-    // MessageAdapter class and the inner MessageViewHolder class
+    // messageAdapter class and the inner MessageViewHolder class
     public static class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
         private final List<HomeActivity.ChatMessage> messages;
 
@@ -122,7 +122,7 @@ public class historyactivity extends AppCompatActivity {
             return messages.size();
         }
 
-        // Inner class MessageViewHolder
+        // the inner class for MessageViewHolder
         public static class MessageViewHolder extends RecyclerView.ViewHolder {
             TextView historypromptTextView;
             TextView historyresponseTextView;

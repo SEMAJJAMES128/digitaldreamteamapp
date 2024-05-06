@@ -111,8 +111,8 @@ public class HomeActivity extends AppCompatActivity {
     public static class ChatMessage {
         private String prompt;
         private String response;
-        private boolean isUser; // Ensure this field exists in Firestore if you use it
-        private Timestamp createTime; // Changed to createTime to match Firestore
+        private boolean isUser; //
+        private Timestamp createTime; //
 
         public ChatMessage(String prompt, boolean isUser, Timestamp createTime) {
             this.prompt = prompt;
@@ -120,7 +120,7 @@ public class HomeActivity extends AppCompatActivity {
             this.createTime = createTime;
         }
 
-        public ChatMessage() {} // Needed for Firestore deserialization
+        public ChatMessage() {} // this is for the Firestore deserialization
 
         // Getters and setters
         public String getPrompt() { return prompt; }
@@ -151,7 +151,7 @@ public class HomeActivity extends AppCompatActivity {
         public void onBindViewHolder(@NonNull MessageViewHolder holder, int position) {
             ChatMessage message = messages.get(position);
             holder.promptTextView.setText(message.getPrompt());
-            holder.responseTextView.setText(message.getResponse()); // Ensure this TextView exists in your layout
+            holder.responseTextView.setText(message.getResponse()); // this is the text view for our layout
         }
 
         @Override
@@ -165,8 +165,8 @@ public class HomeActivity extends AppCompatActivity {
 
             public MessageViewHolder(@NonNull View itemView) {
                 super(itemView);
-                promptTextView = itemView.findViewById(R.id.textViewPrompt); // Ensure this ID matches your layout
-                responseTextView = itemView.findViewById(R.id.textViewResponse); // Ensure this ID matches your layout
+                promptTextView = itemView.findViewById(R.id.textViewPrompt); // this is the ID that matches our layout
+                responseTextView = itemView.findViewById(R.id.textViewResponse); // this is also the ID that matches our layout
             }
         }
     }

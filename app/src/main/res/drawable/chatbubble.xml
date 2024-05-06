@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- The rectangle part of the bubble -->
+    <!-- this is the rectangle part of the bubble -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF"/> <!-- Background color of the bubble -->
-            <corners android:radius="16dp"/> <!-- Rounded corners -->
+            <solid android:color="#FFFFFF"/>
+            <corners android:radius="16dp"/>
             <padding
                 android:left="16dp"
                 android:top="8dp"
                 android:right="16dp"
-                android:bottom="8dp"/> <!-- Padding inside the bubble -->
+                android:bottom="8dp"/>
         </shape>
     </item>
     <!-- The tail of the bubble -->
